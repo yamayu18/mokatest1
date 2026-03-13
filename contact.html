@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- ページ名: お問い合わせ | ファイル: contact.html -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 医療法人百花繚乱</title>
+  <meta name="description" content="百花ジェルに関するお問い合わせはこちらからお願いいたします。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .header-logo {
+      line-height: 1.3;
+      padding: 0.35rem 0.75rem;
+      border-left: 3px solid #B85C38;
+      background: linear-gradient(to right, rgba(184,92,56,0.06) 0%, transparent 100%);
+      border-radius: 0 4px 4px 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #333;
+      background-color: #EFEFE7;
+      line-height: 1.8;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* スマホ最適化（Mac表示は維持） */
+    @media (max-width: 768px) {
+      header.w-full {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      /* フォームの間隔を整えて押しやすく */
+      input, select, textarea {
+        font-size: 16px; /* iOSの自動ズーム防止 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="w-full py-6 px-4 md:px-8 bg-[#EFEFE7] sticky top-0 z-40 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center">
+        <button id="menu-toggle" class="z-50 flex-shrink-0 w-10 h-10 flex items-center justify-center" aria-label="メニュー">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="flex-1 min-w-0"></div>
+        <a href="index.html" class="header-logo text-center block">
+          <span class="block text-lg md:text-2xl font-medium text-[#B85C38] tracking-wider" style="font-family: 'Hiragino Maru Gothic ProN', 'M PLUS Rounded 1c', sans-serif;">百花ジェル</span>
+        </a>
+        <div class="flex-1 min-w-0"></div>
+        <div class="flex items-center gap-4 flex-shrink-0">
+          <button aria-label="検索">
+            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- メニューオーバーレイ -->
+      <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+      <!-- サイドメニュー -->
+      <div id="side-menu" class="fixed left-0 top-0 h-full w-64 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-lg font-light text-gray-800">メニュー</h2>
+            <button id="menu-close" class="text-gray-700 hover:text-gray-900">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <nav class="space-y-4">
+            <a href="index.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">ホーム</a>
+            <a href="product-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">商品詳細</a>
+            <a href="subscription-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">定期お届け便</a>
+            <a href="product-detail.html#faq" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">よくある質問</a>
+            <a href="intro.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">クリニック紹介</a>
+            <a href="contact.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">お問い合わせ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- お問い合わせセクション -->
+  <section class="w-full py-16 md:py-24 bg-white">
+    <div class="max-w-2xl mx-auto px-4 md:px-8">
+      <h1 class="text-3xl md:text-4xl font-light text-gray-800 text-center mb-8">
+        お問い合わせ
+      </h1>
+      
+      <div class="space-y-4 text-sm md:text-base text-gray-700 font-light leading-relaxed mb-8">
+        <p>
+          下記のフォームより必要事項をご記入の上、お問い合わせください。
+        </p>
+        <p>
+          お問い合わせ内容によっては、お返事を差し上げるまでにお時間をいただく場合がございます。
+        </p>
+        <p class="pt-2">
+          <span class="font-medium">■営業時間</span> 平日9:00-18:00
+        </p>
+        <p>
+          お返事は <a href="mailto:ihr.jimu@hyakka-ryo.com" class="text-gray-800 underline hover:no-underline">ihr.jimu@hyakka-ryo.com</a> からお送りいたします。受信設定のご確認をお願いいたします。
+        </p>
+      </div>
+
+      <!-- お問い合わせフォーム（form-mailer） ※SPAMチェック用にスクリプトを読み込み -->
+      <script src="https://ssl.form-mailer.jp/formfiles/js/embed.js"></script>
+      <form action="https://ssl.form-mailer.jp/fm/service/Forms/confirm" method="post" name="form1" enctype="multipart/form-data" accept-charset="UTF-8" class="bg-white space-y-6">
+        <input type="hidden" name="key" value="505e7fc7876246">
+        <input type="hidden" name="code" value="utf8">
+
+        <p class="text-sm text-gray-600">*は必須項目です</p>
+
+        <!-- お問い合わせ種別 -->
+        <div>
+          <label for="field_7666949" class="block text-sm text-gray-700 font-light mb-2">*お問い合わせ種別</label>
+          <select id="field_7666949" name="field_7666949" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 text-gray-800 bg-white">
+            <option value="">------</option>
+            <option value="0">商品について</option>
+            <option value="1">ご注文について</option>
+            <option value="2">定期お届け便について</option>
+            <option value="3">その他</option>
+          </select>
+        </div>
+
+        <!-- 名前 -->
+        <div>
+          <p class="block text-sm text-gray-700 font-light mb-2">*名前</p>
+          <p class="flex gap-4 flex-wrap">
+            <span class="flex-1 min-w-[120px]">
+              <input name="field_7666934_sei" type="text" placeholder="姓" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 text-gray-800">
+            </span>
+            <span class="flex-1 min-w-[120px]">
+              <input name="field_7666934_mei" type="text" placeholder="名" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 text-gray-800">
+            </span>
+          </p>
+        </div>
+
+        <!-- メールアドレス -->
+        <div>
+          <label for="field_7666935" class="block text-sm text-gray-700 font-light mb-2">*メールアドレス</label>
+          <input id="field_7666935" name="field_7666935" type="email" placeholder="info@example.com" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 text-gray-800">
+        </div>
+
+        <!-- 電話番号 -->
+        <div>
+          <label for="field_7666939" class="block text-sm text-gray-700 font-light mb-2">*電話番号</label>
+          <input id="field_7666939" name="field_7666939" type="tel" placeholder="090-0000-0000" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 text-gray-800">
+        </div>
+
+        <!-- お問い合わせ内容 -->
+        <div>
+          <label for="field_7666946" class="block text-sm text-gray-700 font-light mb-2">*お問い合わせ内容</label>
+          <textarea id="field_7666946" name="field_7666946" rows="7" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 text-gray-800 resize-none"></textarea>
+        </div>
+
+        <div class="pt-4">
+          <button type="submit" name="submit" class="w-full px-8 py-4 bg-[#36A89B] text-white text-base font-light tracking-wide rounded-sm hover:bg-[#2d8f82] transition-colors duration-300">
+            確認画面へ
+          </button>
+        </div>
+
+        <p class="text-xs text-gray-500">
+          <a href="https://www.form-mailer.jp/?utm_source=https://ssl.form-mailer.jp/fms/505e7fc7876246&amp;utm_medium=ownedmedia&amp;utm_campaign=powered-by-formmailer" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700">Powered by FormMailer.</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#EFEFE7] border-t border-gray-100 mt-24">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-12">
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-3 md:mb-6">
+        <a href="product-detail.html" class="hover:text-gray-800 transition-colors">商品紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="intro.html" class="hover:text-gray-800 transition-colors">クリニック紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="index.html#concept" class="hover:text-gray-800 transition-colors">コンセプト・私たちの思い</a>
+        <span class="text-gray-300">|</span>
+        <a href="contact.html" class="hover:text-gray-800 transition-colors">お問い合わせ</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-4 md:mb-10">
+        <a href="legal-notice.html" class="hover:text-gray-800 transition-colors py-2">特定商取引法に基づく表記</a>
+        <span class="text-gray-300">|</span>
+        <a href="terms-of-service.html" class="hover:text-gray-800 transition-colors py-2">利用規約</a>
+        <span class="text-gray-300">|</span>
+        <a href="privacy-policy.html" class="hover:text-gray-800 transition-colors py-2">プライバシーポリシー</a>
+      </div>
+      <div class="text-center mb-4 md:mb-8">
+        <p class="text-sm md:text-base font-medium text-gray-800">ほほえみ歯科</p>
+      </div>
+      <div class="border-t border-gray-200 pt-4 md:pt-6">
+        <p class="text-xs text-gray-500 text-center">© 2026 VUV株式会社. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ハンバーガーメニュー機能
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuClose = document.getElementById('menu-close');
+      const sideMenu = document.getElementById('side-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+
+      function openMenu() {
+        sideMenu.classList.remove('-translate-x-full');
+        menuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        sideMenu.classList.add('-translate-x-full');
+        menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', openMenu);
+      }
+
+      if (menuClose) {
+        menuClose.addEventListener('click', closeMenu);
+      }
+
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+      }
+
+      // ESCキーでメニューを閉じる
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !sideMenu.classList.contains('-translate-x-full')) {
+          closeMenu();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

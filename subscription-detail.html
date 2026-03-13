@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- ページ名: 定期購入詳細 | ファイル: subscription-detail.html -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定期お届け便について | 医療法人百花繚乱</title>
+  <meta name="description" content="百花ジェルの定期お届け便について。毎月1回自動的にお届けするシンプルな仕組みです。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .header-logo {
+      line-height: 1.3;
+      padding: 0.35rem 0.75rem;
+      border-left: 3px solid #B85C38;
+      background: linear-gradient(to right, rgba(184,92,56,0.06) 0%, transparent 100%);
+      border-radius: 0 4px 4px 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #333;
+      background-color: #EFEFE7;
+      line-height: 1.8;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* スマホ最適化（Mac表示は維持） */
+    @media (max-width: 768px) {
+      header.w-full {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      /* カードの余白を少しだけ詰めて読みやすく */
+      .bg-white.p-8 {
+        padding: 1.25rem !important;
+      }
+      .bg-white.p-8.md\:p-12 {
+        padding: 1.25rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="w-full py-6 px-4 md:px-8 bg-[#EFEFE7] sticky top-0 z-40 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center">
+        <button id="menu-toggle" class="z-50 flex-shrink-0 w-10 h-10 flex items-center justify-center" aria-label="メニュー">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="flex-1 min-w-0"></div>
+        <a href="index.html" class="header-logo block text-center">
+          <span class="block text-base md:text-xl font-medium text-[#B85C38] tracking-wider" style="font-family: 'Hiragino Maru Gothic ProN', 'M PLUS Rounded 1c', sans-serif;">百花ジェル</span>
+        </a>
+        <div class="flex-1 min-w-0"></div>
+        <div class="flex items-center gap-4 flex-shrink-0">
+          <button aria-label="検索">
+            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- メニューオーバーレイ -->
+      <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+      <!-- サイドメニュー -->
+      <div id="side-menu" class="fixed left-0 top-0 h-full w-64 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-lg font-light text-gray-800">メニュー</h2>
+            <button id="menu-close" class="text-gray-700 hover:text-gray-900">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <nav class="space-y-4">
+            <a href="index.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">ホーム</a>
+            <a href="product-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">商品詳細</a>
+            <a href="subscription-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">定期お届け便</a>
+            <a href="product-detail.html#faq" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">よくある質問</a>
+            <a href="intro.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">クリニック紹介</a>
+            <a href="contact.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">お問い合わせ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="w-full py-16 md:py-24 bg-[#EFEFE7]">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <div class="space-y-12">
+        <!-- タイトル -->
+        <div class="space-y-4">
+          <h1 class="text-3xl md:text-4xl font-light text-gray-800">
+            定期お届け便について
+          </h1>
+          <p class="text-base md:text-lg text-gray-600 font-light">
+            毎月1回、自動的にお届けするシンプルな仕組みです
+          </p>
+        </div>
+
+        <!-- なぜ定期便にしているのか -->
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-sm space-y-6">
+          <h2 class="text-2xl md:text-3xl font-light text-gray-800">
+            なぜ定期便にしているのか
+          </h2>
+          <div class="space-y-4 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+            <p>
+              百花ジェルは、毎日の習慣として使ってほしい商品です。
+            </p>
+            <p>
+              続けることで、やさしいケアが日常になります。
+            </p>
+            <p>
+              定期便は、その習慣を自然に支えるための仕組みです。
+            </p>
+            <p>
+              買い忘れを気にせず、毎月届くことで、続けやすくなります。
+            </p>
+          </div>
+        </div>
+
+        <!-- 毎月1回届くシンプルな仕組み -->
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-sm space-y-6">
+          <h2 class="text-2xl md:text-3xl font-light text-gray-800">
+            毎月1回届くシンプルな仕組み
+          </h2>
+          <div class="space-y-4 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+            <p>
+              定期お届け便は、毎月1回、自動的にお届けします。
+            </p>
+            <p>
+              配送サイクルの選択や、日付の指定はありません。
+            </p>
+            <p>
+              シンプルに、毎月同じタイミングで届きます。
+            </p>
+            <p>
+              続けたい人のための、自然な選択肢です。
+            </p>
+          </div>
+        </div>
+
+        <!-- 定期購入について -->
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-sm space-y-6">
+          <h2 class="text-2xl md:text-3xl font-light text-gray-800">
+            定期購入について
+          </h2>
+          <div class="bg-[#FDF8F6] border-l-4 border-[#B85C38] p-4 md:p-5 rounded-r-lg">
+            <ul class="text-sm md:text-base text-gray-700 font-light leading-relaxed space-y-1 list-none">
+              <li>・回数縛りはありません。</li>
+              <li>・解約は次回決済日の7日前までにご連絡ください。</li>
+              <li>・期限を過ぎた場合、次回分は通常通り決済・発送されます。</li>
+            </ul>
+          </div>
+          <div class="space-y-4 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+            <p>
+              定期購入は、毎月1回、自動的にお届けするシンプルな仕組みです。
+            </p>
+            <p>
+              本サービスは一人様一度限りのご注文限定です。解約後の再度のお申し込みはお受けできません。
+            </p>
+            <p>
+              お届けの停止や変更は、Stripeのサブスクリプション管理ページからいつでも行っていただけます。
+            </p>
+            <div class="pt-4 pb-2">
+              <p class="font-medium text-gray-800 mb-2">■ お届け本数について</p>
+              <p class="text-sm md:text-base text-gray-700 font-light leading-relaxed">
+                定期購入では、初回ご注文時に選択いただいた本数を、次回以降も同じ本数でお届けいたします。（例：3本ご注文の場合、毎月3本お届け）
+              </p>
+            </div>
+            <p class="pt-3 text-red-600 text-sm">
+              ※本数変更の際は、電話（事務サポート窓口）または<a href="contact.html" class="font-medium underline hover:no-underline">お問い合わせフォーム</a>からご連絡ください。<a href="tel:080-6948-7318" class="font-medium underline hover:no-underline">TEL: 080-6948-7318</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- 解約・変更・停止の手順 -->
+        <div id="cancel" class="bg-white p-8 md:p-12 rounded-lg shadow-sm space-y-8">
+          <h2 class="text-2xl md:text-3xl font-light text-gray-800">
+            ご契約の変更・解約について
+          </h2>
+
+          <p class="text-sm md:text-base text-gray-700 font-light leading-relaxed">
+            お申し込み後にお送りするメールの「お支払い・お届けの管理」リンクから、解約・お届けの停止・お支払い方法の変更ができます。
+          </p>
+
+          <div>
+            <h3 class="text-base md:text-lg font-medium text-gray-800 mb-3">解約・変更の手順</h3>
+            <ol class="list-decimal list-inside space-y-2 text-sm md:text-base text-gray-700 font-light leading-relaxed pl-1">
+              <li>お申し込み後にお送りする「ご注文確認」メールを開く</li>
+              <li>メール内の「お支払い・お届けの管理」リンクをクリック</li>
+              <li>管理ページで、停止・解約・支払い方法の変更を行う</li>
+            </ol>
+          </div>
+
+          <div class="bg-gray-50 border border-gray-200 p-4 md:p-5 rounded-lg">
+            <p class="text-sm font-medium text-gray-800 mb-2">「お支払い・お届けの管理」って何のサービス？</p>
+            <p class="text-sm md:text-base text-gray-700 font-light leading-relaxed">
+              当サイトでは、クレジットカード決済を「Stripe（ストライプ）」という決済サービスに委託しています。Stripeは世界中の企業で利用されている安全なサービスで、お支払いのたびにご登録のメールアドレスへ確認メールが届きます。そのメール内の「お支払い・お届けの管理」リンクから、お届けの停止や解約などの手続きを行っていただけます。
+            </p>
+            </div>
+
+          <p class="text-sm md:text-base text-gray-600 font-light">
+            メールが届かない・リンクがわからない場合は、<a href="contact.html" class="text-gray-800 underline hover:no-underline">お問い合わせ</a>からご連絡ください。
+          </p>
+        </div>
+
+        <!-- 返品・交換について -->
+        <div id="return" class="bg-white p-8 md:p-12 rounded-lg shadow-sm space-y-6">
+          <h2 class="text-2xl md:text-3xl font-light text-gray-800">
+            返品・交換について
+          </h2>
+          <p class="text-sm md:text-base text-gray-700 font-light leading-relaxed">
+            商品に不良、破損、誤配送があった場合に限り、返品または交換を承ります。商品到着後7日以内に当社へご連絡ください。お客様都合による返品・交換はお受けできません。返品・交換時の送料は、商品不備の場合は当社負担です。
+          </p>
+        </div>
+
+        <!-- 価格について -->
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-sm space-y-6">
+          <h2 class="text-2xl md:text-3xl font-light text-gray-800">
+            価格について
+          </h2>
+          <div class="space-y-4 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+            <p>
+              定期購入は、定価より約40%OFF（<span class="font-medium">1回限りのご注文限定</span>）でお届けします。
+            </p>
+            <p>
+              続けやすい価格で、毎月お届けします。
+            </p>
+          </div>
+        </div>
+
+        <!-- 申し込み・戻るリンク -->
+        <div class="text-center pt-8 space-y-4">
+          <a href="https://buy.stripe.com/4gMeVefiJ9Kh16ydwRc7u00" class="cta-button inline-block w-full px-8 py-4 text-center text-base font-semibold tracking-wide rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 bg-gray-800 text-white hover:bg-gray-900 border-2 border-gray-900">
+            定期購入を申し込む
+          </a>
+          <div>
+            <a href="product-detail.html" class="inline-block px-8 py-3 border border-gray-400 text-gray-700 bg-white text-sm font-light tracking-wide rounded-sm hover:bg-gray-50 transition-colors duration-300">
+              商品詳細ページに戻る
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#EFEFE7] border-t border-gray-200 mt-24">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-12">
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-3 md:mb-6">
+        <a href="product-detail.html" class="hover:text-gray-800 transition-colors">商品紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="intro.html" class="hover:text-gray-800 transition-colors">クリニック紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="index.html#concept" class="hover:text-gray-800 transition-colors">コンセプト・私たちの思い</a>
+        <span class="text-gray-300">|</span>
+        <a href="contact.html" class="hover:text-gray-800 transition-colors">お問い合わせ</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-4 md:mb-10">
+        <a href="legal-notice.html" class="hover:text-gray-800 transition-colors py-2">特定商取引法に基づく表記</a>
+        <span class="text-gray-300">|</span>
+        <a href="terms-of-service.html" class="hover:text-gray-800 transition-colors py-2">利用規約</a>
+        <span class="text-gray-300">|</span>
+        <a href="privacy-policy.html" class="hover:text-gray-800 transition-colors py-2">プライバシーポリシー</a>
+      </div>
+      <div class="text-center mb-4 md:mb-8">
+        <p class="text-sm md:text-base font-medium text-gray-800">ほほえみ歯科</p>
+      </div>
+      <div class="border-t border-gray-200 pt-4 md:pt-6">
+        <p class="text-xs text-gray-500 text-center">© 2026 VUV株式会社. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ハンバーガーメニュー機能
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuClose = document.getElementById('menu-close');
+      const sideMenu = document.getElementById('side-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+
+      function openMenu() {
+        sideMenu.classList.remove('-translate-x-full');
+        menuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        sideMenu.classList.add('-translate-x-full');
+        menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', openMenu);
+      }
+
+      if (menuClose) {
+        menuClose.addEventListener('click', closeMenu);
+      }
+
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+      }
+
+      // ESCキーでメニューを閉じる
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !sideMenu.classList.contains('-translate-x-full')) {
+          closeMenu();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

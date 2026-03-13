@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- ページ名: 商品詳細 | ファイル: product-detail.html -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品詳細 | 百花ジェル 医療法人百花繚乱</title>
+  <meta name="description" content="百花ジェルの商品詳細。ほほえみ歯科が関わってつくったオーラルケアジェル。泡立たないので口の奥までやさしく届きます。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .header-logo {
+      line-height: 1.3;
+      padding: 0.35rem 0.75rem;
+      border-left: 3px solid #B85C38;
+      background: linear-gradient(to right, rgba(184,92,56,0.06) 0%, transparent 100%);
+      border-radius: 0 4px 4px 0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #333;
+      background-color: #EFEFE7;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .pd-carousel-shell { transform: scale(1.4); transform-origin: left top; }
+    @media (max-width: 768px) {
+      .pd-carousel-shell { transform: none !important; transform-origin: initial !important; max-width: 100% !important; width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
+      section.w-full.py-12 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+      section .max-w-6xl { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+      section .grid.gap-12 { gap: 1rem !important; }
+      .pd-thumbnails { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0.5rem !important; }
+      .pd-thumbnails .product-thumbnail { width: 100% !important; aspect-ratio: 1/1 !important; border-width: 2px !important; border-radius: 4px !important; }
+      .pd-thumbnails .product-thumbnail img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+      .pd-purchase-card { padding: 1rem !important; }
+    }
+    .cta-button { min-height: 3rem; }
+    .cta-button:hover { transform: scale(1.02); }
+    .cta-button:active { transform: scale(0.98); }
+    .pd-subscription-card { border: 2px solid #B85C38; background: linear-gradient(to bottom, #fef8f6 0%, #fff 100%); box-shadow: 0 8px 24px rgba(184,92,56,0.12), 0 2px 8px rgba(0,0,0,0.06); }
+    .pd-subscription-price { color: #B85C38; font-weight: 700; }
+    .pd-subscription-btn { background: #B85C38 !important; border-color: #9a4e2f !important; color: #fff !important; font-weight: 600; font-size: 1.0625rem; padding: 0.875rem 1.25rem; box-shadow: 0 4px 12px rgba(184,92,56,0.25); }
+    .pd-subscription-btn:hover { background: #9a4e2f !important; border-color: #7d3f26 !important; box-shadow: 0 6px 16px rgba(184,92,56,0.35); transform: scale(1.02); }
+    .pd-off-badge { background: #B85C38; color: #fff; font-weight: 700; }
+    .pd-save-amount { background: #fef3ef; border: 1px solid #e8c4b8; color: #B85C38; font-weight: 600; }
+    #image-lightbox { display: none; }
+    #image-lightbox.is-open { display: flex; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="w-full py-6 px-4 md:px-8 bg-[#EFEFE7] sticky top-0 z-40 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center">
+        <button id="menu-toggle" class="z-50 flex-shrink-0 w-10 h-10 flex items-center justify-center" aria-label="メニュー">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="flex-1 min-w-0"></div>
+        <a href="index.html" class="header-logo text-center block">
+          <span class="block text-lg md:text-2xl font-medium text-[#B85C38] tracking-wider" style="font-family: 'Hiragino Maru Gothic ProN', 'M PLUS Rounded 1c', sans-serif;">百花ジェル</span>
+        </a>
+        <div class="flex-1 min-w-0"></div>
+      </div>
+      <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+      <div id="side-menu" class="fixed left-0 top-0 h-full w-64 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-lg font-light text-gray-800">メニュー</h2>
+            <button id="menu-close" class="text-gray-700 hover:text-gray-900">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <nav class="space-y-4">
+            <a href="index.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">ホーム</a>
+            <a href="product-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">商品詳細</a>
+            <a href="subscription-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">定期お届け便</a>
+            <a href="product-detail.html#faq" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">よくある質問</a>
+            <a href="intro.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">クリニック紹介</a>
+            <a href="contact.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">お問い合わせ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product First View -->
+  <section class="w-full py-12 md:py-16 bg-[#EFEFE7]">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+        <!-- 商品写真カルーセル -->
+        <div class="w-full -ml-2 md:-ml-32 mt-0 md:mt-4 relative">
+          <div class="absolute left-0 top-0 w-20 md:w-32 bg-white z-0" style="height: calc(100% - 100px);"></div>
+          <div class="pd-carousel-shell relative w-full max-w-sm md:max-w-md bg-white rounded-lg shadow-lg z-10 p-4 pb-2">
+            <div class="bg-white rounded-lg mb-4">
+              <div id="product-carousel" class="relative rounded overflow-hidden cursor-pointer w-full aspect-square">
+                <div id="product-carousel-inner" class="flex transition-transform duration-300 ease-in-out h-full" style="transform: translateX(0%);">
+                  <div class="min-w-full flex-shrink-0 product-main-image w-full h-full" data-image="./images/product-carousel-1.png">
+                    <img src="./images/product-carousel-1.png" alt="百花ゼロジェル 商品写真 1" class="w-full h-full object-cover rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 flex items-center justify-center product-main-image w-full h-full bg-white" data-image="./images/product-carousel-2.png">
+                    <img src="./images/product-carousel-2.png" alt="百花ゼロジェル 商品写真 2" class="w-full h-full object-contain rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 product-main-image w-full h-full" data-image="./images/product-carousel-3.png">
+                    <img src="./images/product-carousel-3.png" alt="百花ゼロジェル 商品写真 3" class="w-full h-full object-cover rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 product-main-image w-full h-full" data-image="./images/product-carousel-4.png">
+                    <img src="./images/product-carousel-4.png" alt="百花ゼロジェル 商品写真 4" class="w-full h-full object-cover rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 product-main-image w-full h-full" data-image="./images/product-carousel-5.png">
+                    <img src="./images/product-carousel-5.png" alt="百花ゼロジェル 商品写真 5" class="w-full h-full object-cover rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 flex items-center justify-center product-main-image w-full h-full bg-white" data-image="./images/product-carousel-6.png">
+                    <img src="./images/product-carousel-6.png" alt="百花ゼロジェル 商品写真 6" class="w-full h-full object-contain rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 flex items-center justify-center product-main-image w-full h-full bg-white" data-image="./images/product-carousel-7.png">
+                    <img src="./images/product-carousel-7.png" alt="百花ゼロジェル 商品写真 7" class="w-full h-full object-contain rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 flex items-center justify-center product-main-image w-full h-full bg-white" data-image="./images/product-carousel-8.png">
+                    <img src="./images/product-carousel-8.png" alt="百花ゼロジェル 商品写真 8" class="w-full h-full object-contain rounded block" />
+                  </div>
+                  <div class="min-w-full flex-shrink-0 flex items-center justify-center product-main-image w-full h-full bg-white" data-image="./images/product-carousel-9.png">
+                    <img src="./images/product-carousel-9.png" alt="開発ストーリー" class="w-full h-full object-contain rounded block" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pd-thumbnails flex gap-2 justify-center mt-4 flex-wrap pb-2">
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="0"><img src="./images/product-carousel-1.png" alt="サムネイル 1" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="1"><img src="./images/product-carousel-2.png" alt="サムネイル 2" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="2"><img src="./images/product-carousel-3.png" alt="サムネイル 3" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="3"><img src="./images/product-carousel-4.png" alt="サムネイル 4" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="4"><img src="./images/product-carousel-5.png" alt="サムネイル 5" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="5"><img src="./images/product-carousel-6.png" alt="サムネイル 6" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="6"><img src="./images/product-carousel-7.png" alt="サムネイル 7" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="7"><img src="./images/product-carousel-8.png" alt="サムネイル 8" class="w-full h-full object-cover" /></button>
+              <button type="button" class="product-thumbnail flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border-2 border-gray-300 rounded overflow-hidden hover:border-gray-600 transition-all cursor-pointer" data-slide="8"><img src="./images/product-carousel-9.png" alt="開発ストーリー" class="w-full h-full object-cover" /></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 商品情報・購入エリア -->
+        <div class="space-y-4 md:space-y-5">
+          <div class="space-y-2">
+            <h1 class="text-3xl md:text-4xl font-light text-gray-800 mb-0 pb-0">百花ジェル</h1>
+            <p class="text-lg md:text-xl text-gray-600 font-light leading-snug md:leading-normal">口臭や歯ぐきが気になる方へ。診療の現場の声をもとに、毎日使いやすいジェルにしました。</p>
+            <div class="space-y-2 text-sm md:text-base text-gray-700 font-light leading-normal md:leading-relaxed pt-0.5">
+              <p>泡立たないので、口の奥まで届きやすい。刺激も少なく、毎日続けやすくしています。</p>
+              <p>家族みんなで使えます。</p>
+            </div>
+          </div>
+          <div class="pd-purchase-area pt-2 md:pt-3 space-y-4">
+            <!-- 通常購入 -->
+            <div class="pd-purchase-card bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm space-y-4 relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-green-50 border-2 border-green-300 text-green-800 text-sm md:text-base font-bold px-4 py-2 rounded-bl-lg">送料無料(メール便)</div>
+              <p class="text-base md:text-lg text-gray-700 font-semibold -mt-2 pt-0">通常購入</p>
+              <p class="text-base md:text-lg text-gray-500 mb-0.5"><span class="line-through">定価 ¥2,980</span></p>
+              <p class="text-3xl md:text-4xl font-light text-gray-800">¥2,280<span class="text-base text-gray-500 ml-1">(税込)</span><span class="text-base text-gray-500 ml-2">1本あたり</span></p>
+              <p class="mt-2"><span class="inline-flex items-center rounded-full bg-red-500 text-white text-sm font-bold px-4 py-1.5 shadow-md">公式限定価格</span></p>
+              <a href="https://buy.stripe.com/eVqfZi7Qh8GdeXo50lc7u01" id="normal-purchase-btn" class="cta-button cta-normal inline-block w-full px-8 py-4 text-center text-base font-semibold tracking-wide rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 bg-gray-700 text-white hover:bg-gray-800 border-2 border-gray-800">購入する</a>
+            </div>
+            <!-- 定期購入 -->
+            <div class="pd-purchase-card pd-subscription-card p-6 md:p-8 rounded-xl space-y-4 relative overflow-hidden">
+              <div class="absolute top-0 right-0 flex flex-col items-end gap-1">
+                <span class="pd-off-badge text-sm md:text-base px-5 py-2 rounded-bl-xl">約40%OFF</span>
+                <span class="bg-green-50 border-2 border-green-300 text-green-800 text-sm md:text-base font-bold px-4 py-2 rounded-bl-lg">送料無料(メール便)</span>
+              </div>
+              <div class="absolute -top-3 left-4 bg-[#B85C38] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow">おすすめ</div>
+              <p class="text-lg md:text-xl font-semibold text-gray-800 mb-2">定期購入</p>
+              <div class="flex flex-wrap items-baseline gap-2 mb-2">
+                <span class="text-base text-gray-400 line-through">定価 ¥2,980</span>
+              </div>
+              <p class="text-3xl md:text-4xl pd-subscription-price mb-0">¥1,780<span class="text-base text-gray-500 ml-1">(税込)</span><span class="text-base text-gray-500 ml-2">1本あたり</span></p>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-red-500 text-white font-bold text-sm px-4 py-2 shadow-md">定価より約40%OFF</span>
+                <span class="inline-flex items-center rounded-full bg-amber-500 text-white font-bold text-sm px-4 py-2 shadow-md">1回限りのご注文限定</span>
+              </div>
+              <div class="bg-amber-50/80 border-l-4 border-[#B85C38] p-3 rounded">
+                <p class="text-sm text-gray-700 font-medium leading-relaxed">毎月1回、自動でお届け。お申し込み後にお送りするメールから、解約・変更はいつでも可能です。</p>
+              </div>
+              <p class="text-xs text-gray-500 leading-relaxed mt-2">初回にご注文いただいた本数を、次回以降も同数でお届けします。本数変更をご希望の場合は<a href="contact.html" class="text-gray-600 underline hover:no-underline">サポート</a>までご連絡ください。</p>
+              <a href="https://buy.stripe.com/4gMeVefiJ9Kh16ydwRc7u00" id="subscription-purchase-btn" class="cta-button pd-subscription-btn inline-block w-full text-center tracking-wide rounded-lg hover:shadow-lg active:scale-[0.98] transition-all duration-300 border-2 border-[#9a4e2f]">定期購入で始める</a>
+              <p class="text-sm text-gray-600 text-center pt-1 pb-0">解約・変更方法の詳細はこちら</p>
+              <div class="pt-0.5 text-center -mt-0.5"><a href="subscription-detail.html" class="text-sm font-medium text-gray-700 hover:text-gray-900 inline-flex items-center gap-1">▶ 定期お届け便について</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使い方・使用シーン & 百花ジェルについて -->
+  <section class="w-full py-8 md:py-10 bg-white">
+    <div class="max-w-5xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div class="md:-ml-12">
+          <h2 class="text-lg md:text-xl font-medium text-gray-800 mb-4 border-l-4 border-gray-800 pl-3">使い方・使用シーン</h2>
+          <div class="bg-gray-50/50 p-4 md:p-5 rounded-lg">
+            <div class="space-y-1.5 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+              <p>朝のひと磨き。夜、一日の終わりのケア。</p>
+              <p>いつもの歯みがきに、そのまま足すだけ。</p>
+              <p>泡立たないから、口の奥まで届く。やさしい使い心地です。</p>
+              <p>忙しい朝も、夜も。同じやさしさで続けられます。</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:-mr-4">
+          <h2 class="text-lg md:text-xl font-medium text-gray-800 mb-4 border-l-4 border-gray-800 pl-3">百花ジェルについて</h2>
+          <div class="bg-gray-50/50 p-4 md:p-5 rounded-lg">
+            <div class="space-y-2 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+              <p>診療を通じて、毎日のケアの大切さを実感してきました。</p>
+              <p>家族で安心して使える、やさしい日用品を。その想いでつくりました。</p>
+              <p>歯科の視点で、必要なものだけを選んでいます。</p>
+              <p>毎日の歯みがきを、歯科の目線で。それが百花ジェルです。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ご使用方法 -->
+  <section class="w-full py-12 md:py-16 bg-white relative overflow-hidden">
+    <div class="bg-[#36A89B] py-10 md:py-12 mb-8 md:mb-10">
+      <div class="max-w-4xl mx-auto px-4 md:px-8 text-center">
+        <p class="text-sm md:text-base text-white/90 mb-2 tracking-wide">how to use</p>
+        <div class="w-16 h-px bg-white mx-auto mb-3"></div>
+        <h2 class="text-3xl md:text-4xl font-light text-white">ご使用方法</h2>
+        <div class="w-16 h-px bg-white mx-auto mt-3"></div>
+      </div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-6">
+      <div class="border border-[#36A89B] rounded-lg p-5 md:p-6 bg-white">
+        <div class="flex items-center gap-3 mb-5">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <h3 class="text-lg md:text-xl font-light text-gray-800">歯みがきとして使う場合</h3>
+        </div>
+        <ol class="space-y-4 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+          <li class="flex items-start gap-3"><span class="text-[#36A89B] font-medium flex-shrink-0 mt-0.5">1.</span><span>ポンプを1~3プッシュし、ジェルを歯ブラシに取ります。</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#36A89B] font-medium flex-shrink-0 mt-0.5">2.</span><span>歯と口の中を、やさしくみがきます。</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#36A89B] font-medium flex-shrink-0 mt-0.5">3.</span><span>ブラッシング後は、水などで軽くすすいでください。</span></li>
+        </ol>
+      </div>
+      <div class="border border-[#36A89B] rounded-lg p-5 md:p-6 bg-white">
+        <div class="flex items-center gap-3 mb-5">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+          <h3 class="text-lg md:text-xl font-light text-gray-800">マウスウォッシュとして使う場合</h3>
+        </div>
+        <ol class="space-y-3 text-sm md:text-base text-gray-700 font-light leading-relaxed">
+          <li class="flex items-start gap-3"><span class="text-[#36A89B] font-medium flex-shrink-0 mt-0.5">1.</span><span>キャップや小さなカップに適量の水を入れ、2プッシュ加えます。</span></li>
+          <li class="flex items-start gap-3"><span class="text-[#36A89B] font-medium flex-shrink-0 mt-0.5">2.</span><span>口に含み、30秒〜1分ほど口の中全体に行きわたるようにうがいしてください。</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 成分 -->
+  <section class="w-full py-12 md:py-16 bg-[#FFFEF0]">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <h2 class="text-2xl md:text-3xl font-light text-[#8B4A6B] mb-6 md:mb-8">成分</h2>
+      <div class="space-y-3 text-sm md:text-base text-[#8B4A6B] font-light leading-relaxed">
+        <div><span class="font-medium">基剤:</span> ヒノキ水</div>
+        <div><span class="font-medium">湿潤剤:</span> ソルビトール、グリセリン、水</div>
+        <div><span class="font-medium">甘味剤:</span> キシリトール</div>
+        <div><span class="font-medium">保湿剤:</span> 乳酸桿菌、クサビ根発酵エキス</div>
+        <div><span class="font-medium">可溶化剤:</span> PEG-60水添ヒマシ油</div>
+        <div><span class="font-medium">粘結剤:</span> キサンタンガム、カルボマー</div>
+        <div><span class="font-medium">pH調整剤:</span> 水酸化K</div>
+        <div><span class="font-medium">保湿剤:</span> 乳酸桿菌発酵液、グリチルリチン酸2K、イチョウ葉エキス、スイカズラ花エキス、セージ葉エキス、ヒアルロン酸Na、クチナシ果実エキス</div>
+        <div><span class="font-medium">香味剤:</span> ハッカ油</div>
+        <div><span class="font-medium">溶剤:</span> エタノール</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- よくあるご質問 -->
+  <section id="faq" class="w-full py-12 md:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <svg class="w-6 h-6 text-[#36A89B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <h2 class="text-2xl md:text-3xl font-light text-gray-800 text-center">よくあるご質問</h2>
+      </div>
+      <div class="bg-[#F2F8F6] rounded-lg p-4 md:p-5 shadow-sm">
+        <div class="space-y-3" id="faq-container">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <button type="button" class="faq-question w-full flex items-center gap-3 bg-[#36A89B] text-white px-4 md:px-6 py-4 text-left hover:bg-[#2d8f82] transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#5BC0BE] flex items-center justify-center"><span class="text-white font-bold text-sm">Q</span></div>
+              <span class="flex-1 font-medium text-sm md:text-base">子供が使用しても大丈夫ですか?</span>
+              <svg class="faq-arrow w-5 h-5 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="faq-answer hidden px-4 md:px-6 py-4 md:py-6 bg-white"><p class="text-sm md:text-base text-gray-700 font-light leading-relaxed pl-11">はい、お子さまにもお使いいただけます。天然由来を中心にしたやさしいつくりで、小さなお子さまにも配慮しています。飲み込んでも安心な原材料を選んでいます。</p></div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <button type="button" class="faq-question w-full flex items-center gap-3 bg-[#36A89B] text-white px-4 md:px-6 py-4 text-left hover:bg-[#2d8f82] transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#5BC0BE] flex items-center justify-center"><span class="text-white font-bold text-sm">Q</span></div>
+              <span class="flex-1 font-medium text-sm md:text-base">1日何回使用すればよいですか?</span>
+              <svg class="faq-arrow w-5 h-5 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="faq-answer hidden px-4 md:px-6 py-4 md:py-6 bg-white"><p class="text-sm md:text-base text-gray-700 font-light leading-relaxed pl-11">朝・昼・夜の食後、1日3回のお使いをおすすめしています。とくに寝る前のケアは、夜の口の中を整えるのに役立ちます。</p></div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <button type="button" class="faq-question w-full flex items-center gap-3 bg-[#36A89B] text-white px-4 md:px-6 py-4 text-left hover:bg-[#2d8f82] transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#5BC0BE] flex items-center justify-center"><span class="text-white font-bold text-sm">Q</span></div>
+              <span class="flex-1 font-medium text-sm md:text-base">開封後はどのくらい使用できますか?</span>
+              <svg class="faq-arrow w-5 h-5 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="faq-answer hidden px-4 md:px-6 py-4 md:py-6 bg-white"><p class="text-sm md:text-base text-gray-700 font-light leading-relaxed pl-11">開封後も特に消費期限はございません。直射日光や高温多湿を避けて常温で保管していただければ、長期間安心してお使いいただけます。</p></div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <button type="button" class="faq-question w-full flex items-center gap-3 bg-[#36A89B] text-white px-4 md:px-6 py-4 text-left hover:bg-[#2d8f82] transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#5BC0BE] flex items-center justify-center"><span class="text-white font-bold text-sm">Q</span></div>
+              <span class="flex-1 font-medium text-sm md:text-base">泡立たないのはなぜですか?</span>
+              <svg class="faq-arrow w-5 h-5 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="faq-answer hidden px-4 md:px-6 py-4 md:py-6 bg-white"><p class="text-sm md:text-base text-gray-700 font-light leading-relaxed pl-11">泡を抑えたつくりにしているので、口の奥まで届きやすくしています。発泡剤は使っていません。</p></div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <button type="button" class="faq-question w-full flex items-center gap-3 bg-[#36A89B] text-white px-4 md:px-6 py-4 text-left hover:bg-[#2d8f82] transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#5BC0BE] flex items-center justify-center"><span class="text-white font-bold text-sm">Q</span></div>
+              <span class="flex-1 font-medium text-sm md:text-base">定期購入を解約したい場合はどうすればよいですか?</span>
+              <svg class="faq-arrow w-5 h-5 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="faq-answer hidden px-4 md:px-6 py-4 md:py-6 bg-white"><p class="text-sm md:text-base text-gray-700 font-light leading-relaxed pl-11">お申し込み後にお送りするメールに「お支払い・お届けの管理」用のリンクが記載されています。そのリンクからいつでも解約・変更が可能です。回数の縛りはありません。詳しい手順は<a href="subscription-detail.html#cancel" class="text-gray-800 underline hover:no-underline">定期お届け便のページ</a>をご覧ください。</p></div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+            <button type="button" class="faq-question w-full flex items-center gap-3 bg-[#36A89B] text-white px-4 md:px-6 py-4 text-left hover:bg-[#2d8f82] transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#5BC0BE] flex items-center justify-center"><span class="text-white font-bold text-sm">Q</span></div>
+              <span class="flex-1 font-medium text-sm md:text-base">本数は毎月変更できますか?</span>
+              <svg class="faq-arrow w-5 h-5 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="faq-answer hidden px-4 md:px-6 py-4 md:py-6 bg-white"><p class="text-sm md:text-base text-gray-700 font-light leading-relaxed pl-11">お届け本数の変更をご希望の場合は、<a href="contact.html" class="text-gray-800 underline hover:no-underline">サポート</a>までご連絡ください。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#EFEFE7] border-t border-gray-200 mt-24">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-12">
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-3 md:mb-6">
+        <a href="product-detail.html" class="hover:text-gray-800 transition-colors py-2">商品紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="intro.html" class="hover:text-gray-800 transition-colors py-2">クリニック紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="index.html#concept" class="hover:text-gray-800 transition-colors py-2">コンセプト・私たちの思い</a>
+        <span class="text-gray-300">|</span>
+        <a href="contact.html" class="hover:text-gray-800 transition-colors py-2">お問い合わせ</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-4 md:mb-10">
+        <a href="legal-notice.html" class="hover:text-gray-800 transition-colors py-2">特定商取引法に基づく表記</a>
+        <span class="text-gray-300">|</span>
+        <a href="terms-of-service.html" class="hover:text-gray-800 transition-colors py-2">利用規約</a>
+        <span class="text-gray-300">|</span>
+        <a href="privacy-policy.html" class="hover:text-gray-800 transition-colors py-2">プライバシーポリシー</a>
+      </div>
+      <div class="text-center mb-4 md:mb-8">
+        <p class="text-sm md:text-base font-medium text-gray-800">ほほえみ歯科</p>
+      </div>
+      <div class="border-t border-gray-200 pt-4 md:pt-6">
+        <p class="text-xs text-gray-500 text-center">© 2026 VUV株式会社. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 画像拡大ライトボックス -->
+  <div id="image-lightbox" class="fixed inset-0 z-[60] items-center justify-center bg-black/80 p-4" aria-hidden="true">
+    <button type="button" id="lightbox-close" aria-label="閉じる" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors text-2xl leading-none">&times;</button>
+    <img id="lightbox-image" src="" alt="" class="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded shadow-2xl" />
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuClose = document.getElementById('menu-close');
+      const sideMenu = document.getElementById('side-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+      function openMenu() { sideMenu.classList.remove('-translate-x-full'); menuOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+      function closeMenu() { sideMenu.classList.add('-translate-x-full'); menuOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+      if (menuToggle) menuToggle.addEventListener('click', openMenu);
+      if (menuClose) menuClose.addEventListener('click', closeMenu);
+      if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && !sideMenu.classList.contains('-translate-x-full')) closeMenu(); });
+
+      // 商品カルーセル
+      var currentSlide = 0;
+      var totalSlides = 9;
+      var carousel = document.getElementById('product-carousel-inner');
+      var thumbnails = document.querySelectorAll('.product-thumbnail');
+      function updateCarousel() {
+        if (carousel) carousel.style.transform = 'translateX(-' + currentSlide * 100 + '%)';
+        thumbnails.forEach(function(thumb, i) {
+          if (i === currentSlide) { thumb.classList.remove('border-gray-300'); thumb.classList.add('border-gray-800', 'ring-2', 'ring-gray-400'); }
+          else { thumb.classList.remove('border-gray-800', 'ring-2', 'ring-gray-400'); thumb.classList.add('border-gray-300'); }
+        });
+      }
+      function goToSlide(idx) { currentSlide = (idx + totalSlides) % totalSlides; updateCarousel(); }
+      thumbnails.forEach(function(thumb, i) { thumb.addEventListener('click', function() { goToSlide(i); }); });
+      updateCarousel();
+
+      // スマホ：スワイプで前後のスライドへ
+      var carouselEl = document.getElementById('product-carousel');
+      if (carouselEl) {
+        var touchStartX = 0, touchEndX = 0;
+        var minSwipe = 50;
+        carouselEl.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        carouselEl.addEventListener('touchend', function(e) {
+          touchEndX = e.changedTouches[0].screenX;
+          var diff = touchStartX - touchEndX;
+          if (Math.abs(diff) < minSwipe) return;
+          if (diff > 0) goToSlide(currentSlide + 1);
+          else goToSlide(currentSlide - 1);
+        }, { passive: true });
+      }
+
+      // 画像クリックで拡大表示
+      var lightbox = document.getElementById('image-lightbox');
+      var lightboxImage = document.getElementById('lightbox-image');
+      var lightboxClose = document.getElementById('lightbox-close');
+      function openLightbox() {
+        var slideEl = carousel && carousel.children[currentSlide];
+        var img = slideEl && slideEl.querySelector('img');
+        if (img && img.src) {
+          lightboxImage.src = img.src;
+          lightboxImage.alt = img.alt || '商品画像';
+          lightbox.classList.add('is-open');
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      document.getElementById('product-carousel').addEventListener('click', openLightbox);
+      if (lightboxClose) lightboxClose.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
+      lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox(); });
+
+      // 通常購入 数量・合計
+      var totalPriceEl = document.getElementById('total-price');
+      var unitPrice = 2280;
+      function updateTotalPrice(q) { if (totalPriceEl) totalPriceEl.textContent = '¥' + (unitPrice * (q || 1)).toLocaleString(); }
+      document.querySelectorAll('.quantity-selector').forEach(function(sel) {
+        var dec = sel.querySelector('.quantity-decrease');
+        var inc = sel.querySelector('.quantity-increase');
+        var inp = sel.querySelector('.quantity-input');
+        if (!dec || !inc || !inp) return;
+        inp.addEventListener('input', function() { updateTotalPrice(parseInt(inp.value) || 1); });
+        inp.addEventListener('change', function() { updateTotalPrice(parseInt(inp.value) || 1); });
+        dec.addEventListener('click', function(e) { e.preventDefault(); var v = parseInt(inp.value) || 1; if (v > 1) { inp.value = v - 1; updateTotalPrice(v - 1); } });
+        inc.addEventListener('click', function(e) { e.preventDefault(); var v = parseInt(inp.value) || 1; inp.value = v + 1; updateTotalPrice(v + 1); });
+      });
+
+      // 通常購入・定期購入は Stripe Payment Link へリンク（<a> で遷移）
+
+      // FAQ アコーディオン
+      document.querySelectorAll('.faq-question').forEach(function(q) {
+        q.addEventListener('click', function() {
+          var answer = this.nextElementSibling;
+          var arrow = this.querySelector('.faq-arrow');
+          var open = !answer.classList.contains('hidden');
+          if (open) { answer.classList.add('hidden'); if (arrow) arrow.classList.remove('rotate-180'); }
+          else { answer.classList.remove('hidden'); if (arrow) arrow.classList.add('rotate-180'); }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

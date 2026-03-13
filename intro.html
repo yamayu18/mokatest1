@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- ページ名: クリニック紹介 | ファイル: intro.html -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クリニック紹介 | 医療法人百花繚乱</title>
+  <meta name="description" content="本商品は医療法人百花繚乱（ほほえみ歯科）が商品づくりに関わっています。ほほえみ歯科 高槻院（高槻市）と、運営法人のご紹介です。">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .header-logo {
+      line-height: 1.3;
+      padding: 0.35rem 0.75rem;
+      border-left: 3px solid #B85C38;
+      background: linear-gradient(to right, rgba(184,92,56,0.06) 0%, transparent 100%);
+      border-radius: 0 4px 4px 0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #333;
+      background-color: #FAFAF8;
+      line-height: 1.9;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .intro-lead { font-size: 1.0625rem; line-height: 1.95; color: #374151; }
+    @media (min-width: 768px) { .intro-lead { font-size: 1.125rem; line-height: 2; } }
+    .intro-section { scroll-margin-top: 5rem; }
+    .intro-card { border-left: 4px solid rgba(184,92,56,0.4); }
+    .intro-check { display: flex; align-items: flex-start; gap: 0.625rem; }
+    .intro-check::before { content: ''; flex-shrink: 0; width: 1.375rem; height: 1.375rem; margin-top: 0.15rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23B85C38' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E") no-repeat center; background-size: contain; }
+    .intro-h2 { font-size: 1.25rem; }
+    .intro-num { font-size: 2.5rem; line-height: 1; font-weight: 300; color: rgba(184,92,56,0.35); }
+    @media (min-width: 768px) { .intro-num { font-size: 4rem; } }
+    .intro-link-card { transition: transform 0.2s, box-shadow 0.2s; }
+    .intro-link-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+    @media (min-width: 768px) { .intro-h2 { font-size: 1.5rem; } }
+    @media (max-width: 768px) {
+      html { -webkit-text-size-adjust: 100%; }
+      body { overflow-x: hidden; }
+      header.w-full { padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem; }
+      main section { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .intro-section .max-w-4xl { padding-left: 1rem; padding-right: 1rem; }
+      .intro-section .max-w-3xl { padding-left: 1rem; padding-right: 1rem; }
+      .intro-section + section .max-w-3xl { padding-left: 1rem; padding-right: 1rem; }
+      main > section:first-of-type .max-w-3xl { padding-left: 1rem; padding-right: 1rem; }
+      .intro-card { padding-left: 1rem; }
+      .intro-h2 { font-size: 1.125rem; }
+      .intro-lead { font-size: 1rem; line-height: 1.9; }
+      #menu-toggle { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+      footer .flex a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="w-full py-6 px-4 md:px-8 bg-[#EFEFE7] sticky top-0 z-40 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center">
+        <button id="menu-toggle" class="z-50 flex-shrink-0 w-10 h-10 flex items-center justify-center" aria-label="メニュー">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="flex-1 min-w-0"></div>
+        <a href="index.html" class="header-logo text-center block">
+          <span class="block text-base md:text-xl font-medium text-[#B85C38] tracking-wider" style="font-family: 'M PLUS Rounded 1c', sans-serif;">百花ジェル</span>
+          <span class="block text-xs text-gray-600 mt-0.5">ほほえみ歯科</span>
+        </a>
+        <div class="flex-1 min-w-0"></div>
+      </div>
+      <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+      <div id="side-menu" class="fixed left-0 top-0 h-full w-64 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-lg font-light text-gray-800">メニュー</h2>
+            <button id="menu-close" class="text-gray-700 hover:text-gray-900">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <nav class="space-y-4">
+            <a href="index.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">ホーム</a>
+            <a href="product-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">商品詳細</a>
+            <a href="subscription-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">定期お届け便</a>
+            <a href="product-detail.html#faq" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">よくある質問</a>
+            <a href="intro.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">クリニック紹介</a>
+            <a href="contact.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">お問い合わせ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ページタイトル ＋ 公式リンク -->
+    <section class="w-full py-12 md:py-20 bg-[#F5F3F0] border-b border-[#E8E4DE]">
+      <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
+        <p class="text-xs md:text-sm font-medium text-[#B85C38] tracking-widest mb-2">CLINIC</p>
+        <h1 class="text-2xl md:text-4xl font-light text-gray-800 mb-4 md:mb-5">
+          クリニック紹介
+        </h1>
+        <p class="text-sm md:text-base text-gray-600 font-light max-w-2xl mx-auto mb-4 leading-relaxed">本商品は<strong class="font-medium text-gray-800">医療法人百花繚乱</strong>（ほほえみ歯科）が商品づくりに関わっています。関わっているのは、当法人が運営する<strong class="font-medium text-gray-800 whitespace-nowrap">ほほえみ歯科 高槻院</strong>（高槻市）です。</p>
+        <p class="text-sm md:text-base text-gray-600 font-light max-w-2xl mx-auto mb-8 leading-relaxed">治療の現場で培った目線で品質を確認し、<span class="whitespace-nowrap">毎日安心してお使いいただける</span>商品だけをお届けしています。</p>
+        <p class="text-xs text-gray-500 mb-4">クリニック・運営法人のサイトはこちら</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://www.medcorp-hyakkaryoran.com/" target="_blank" rel="noopener noreferrer" class="intro-link-card w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-800 font-medium rounded-xl border-2 border-[#B85C38] shadow-sm hover:bg-[#FDF8F6]">
+            医療法人百花繚乱 公式サイト（運営法人）
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://www.hohoemi-dc.jp/" target="_blank" rel="noopener noreferrer" class="intro-link-card w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#B85C38] text-white font-medium rounded-xl shadow-md hover:bg-[#9a4e2f]">
+            ほほえみ歯科 高槻院 公式サイト
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 ほほえみ歯科 高槻院 -->
+    <section id="clinic" class="intro-section w-full py-10 md:py-14 bg-[#FAFAF8]">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="flex gap-6 md:gap-8 items-end mb-8 md:mb-10">
+          <span class="intro-num font-light text-[#B85C38]">01</span>
+          <h2 class="intro-h2 font-light text-gray-800">ほほえみ歯科 高槻院</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 lg:gap-x-16 items-center">
+          <div class="order-2 lg:order-1 py-6 lg:py-10 lg:pr-4">
+            <h3 class="text-xl md:text-2xl font-light text-gray-800 mb-2" style="font-family: 'M PLUS Rounded 1c', sans-serif;">ほほえみ歯科 高槻院（高槻市）</h3>
+            <p class="text-sm text-gray-500 mb-6">医療法人百花繚乱が運営する歯科医院です。</p>
+            <div class="space-y-5 mt-6">
+              <p class="intro-lead font-light">
+                高槻市で地域に根ざした診療を行っています。「歯医者がこわい」「痛いのが不安」そんな声に向き合いながら、こわくない・痛みに配慮した診療を心がけています。
+              </p>
+              <p class="intro-lead font-light">
+                治療だけでなく、虫歯や歯周病を防ぐための予防・毎日のケアにも力を入れており、普段の歯みがきや口腔ケアについての相談も多く受けています。
+              </p>
+              <p class="intro-lead font-medium text-gray-800">理事長：松岡 督明</p>
+            </div>
+            <a href="https://www.hohoemi-dc.jp/" target="_blank" rel="noopener noreferrer" class="intro-link-card inline-flex items-center gap-2 px-6 py-3 bg-[#B85C38] text-white text-sm font-medium rounded-lg hover:bg-[#9a4e2f] shadow-md mt-8">
+              ほほえみ歯科 公式サイトを開く
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2 w-full">
+            <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center">
+              <img src="./images/clinic-treatment.png" alt="院内の様子" class="w-full h-auto max-h-[80vh] lg:max-h-[720px] object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 予防と毎日のケアを大切に -->
+    <section id="kanshu" class="intro-section w-full py-10 md:py-14 bg-white">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="flex gap-6 md:gap-8 items-end mb-8 md:mb-10">
+          <span class="intro-num font-light text-[#B85C38]">02</span>
+          <h2 class="intro-h2 font-light text-gray-800">予防と毎日のケアを大切に</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 lg:gap-x-16 items-center">
+          <div class="order-2 lg:order-1 py-6 lg:py-10 lg:pr-4">
+            <h3 class="text-xl md:text-2xl font-light text-gray-800 mb-6">歯科の視点で、毎日使える商品を。</h3>
+            <div class="space-y-5">
+              <p class="intro-lead font-light">
+                毎日使う口のケアのための商品です。歯科医院で多くの患者さんと向き合う中で、「治療が必要になる前に、できることはないか」という視点から生まれました。
+              </p>
+              <p class="intro-lead font-light">歯科の現場で確認しているのは、次の3つです。</p>
+              <ul class="space-y-3 font-light">
+                <li class="intro-check intro-lead">毎日使い続けても負担にならないか</li>
+                <li class="intro-check intro-lead">子どもや家族にも使わせたいと思えるか</li>
+                <li class="intro-check intro-lead">使い方がわかりやすく、続けやすいか</li>
+              </ul>
+              <p class="intro-lead font-light">
+                治療の代わりではなく、日常のケアとして無理なく使えることを大切にしています。
+              </p>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 w-full">
+            <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center">
+              <img src="./images/clinic-explanation.png" alt="診察の様子" class="w-full h-auto max-h-[80vh] lg:max-h-[720px] object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 医療法人 百花繚乱について -->
+    <section id="hojin" class="intro-section w-full py-10 md:py-14 bg-[#FAFAF8]">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="flex gap-6 md:gap-8 items-end mb-8 md:mb-10">
+          <span class="intro-num font-light text-[#B85C38]">03</span>
+          <h2 class="intro-h2 font-light text-gray-800">医療法人 百花繚乱について</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-14 lg:gap-x-16 items-center">
+          <div class="order-2 lg:order-1 py-6 lg:py-10 lg:pr-4">
+            <div class="space-y-5">
+              <p class="intro-lead font-light">
+                医療法人 百花繚乱は、大阪・愛知で複数の歯科医院を運営しています。日々の診療の中で「もっと早く知っていれば防げたかもしれない」という場面に数多く立ち会ってきました。
+              </p>
+              <p class="intro-lead font-light">
+                その経験から、診療室の中だけでなく自宅でのケアまで支えられる存在でありたいという考えで、商品づくりにも関わっています。「患者さんに説明できるか」「自分たちがすすめたいと思えるか」その基準で確認しています。
+              </p>
+            </div>
+            <a href="https://www.medcorp-hyakkaryoran.com/" target="_blank" rel="noopener noreferrer" class="intro-link-card inline-flex items-center gap-2 px-6 py-3 bg-[#B85C38] text-white text-sm font-medium rounded-lg hover:bg-[#9a4e2f] shadow-md mt-8">
+              医療法人 百花繚乱 公式サイトを開く（複数医院のご案内）
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2 w-full">
+            <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center">
+              <img src="./images/clinic-hyakkaryoran.png" alt="関西エリアを中心に6医院グループ展開　医療法人百花繚乱" class="w-full h-auto max-h-[85vh] lg:max-h-[900px] object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#EFEFE7] border-t border-gray-100 mt-12 md:mt-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-12">
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-3 md:mb-6">
+        <a href="product-detail.html" class="hover:text-gray-800 transition-colors">商品紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="intro.html" class="hover:text-gray-800 transition-colors">クリニック紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="index.html#concept" class="hover:text-gray-800 transition-colors">コンセプト・私たちの思い</a>
+        <span class="text-gray-300">|</span>
+        <a href="contact.html" class="hover:text-gray-800 transition-colors">お問い合わせ</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-4 md:mb-10">
+        <a href="legal-notice.html" class="hover:text-gray-800 transition-colors py-2">特定商取引法に基づく表記</a>
+        <span class="text-gray-300">|</span>
+        <a href="terms-of-service.html" class="hover:text-gray-800 transition-colors py-2">利用規約</a>
+        <span class="text-gray-300">|</span>
+        <a href="privacy-policy.html" class="hover:text-gray-800 transition-colors py-2">プライバシーポリシー</a>
+      </div>
+      <div class="text-center mb-4 md:mb-8">
+        <p class="text-sm md:text-base font-medium text-gray-800">医療法人百花繚乱（ほほえみ歯科 高槻院）</p>
+      </div>
+      <div class="border-t border-gray-200 pt-4 md:pt-6">
+        <p class="text-xs text-gray-500 text-center">© 2026 VUV株式会社. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuToggle = document.getElementById('menu-toggle');
+      var menuClose = document.getElementById('menu-close');
+      var sideMenu = document.getElementById('side-menu');
+      var menuOverlay = document.getElementById('menu-overlay');
+      function openMenu() {
+        sideMenu.classList.remove('-translate-x-full');
+        menuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        sideMenu.classList.add('-translate-x-full');
+        menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      if (menuToggle) menuToggle.addEventListener('click', openMenu);
+      if (menuClose) menuClose.addEventListener('click', closeMenu);
+      if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !sideMenu.classList.contains('-translate-x-full')) closeMenu();
+      });
+    });
+  </script>
+</body>
+</html>

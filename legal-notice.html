@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- ページ名: 特定商取引法 | ファイル: legal-notice.html -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記 | 医療法人百花繚乱</title>
+  <meta name="description" content="百花ジェル通販における特定商取引法に基づく表記です。販売業者・送料・返品など。">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .header-logo {
+      line-height: 1.3;
+      padding: 0.35rem 0.75rem;
+      border-left: 3px solid #B85C38;
+      background: linear-gradient(to right, rgba(184,92,56,0.06) 0%, transparent 100%);
+      border-radius: 0 4px 4px 0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #333;
+      background-color: #FAFAF8;
+      line-height: 1.8;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .legal-row { display: grid; grid-template-columns: 1fr; gap: 0.25rem 0; padding: 1rem 0; border-bottom: 1px solid #E5E7EB; }
+    .legal-row:last-child { border-bottom: none; }
+    @media (min-width: 768px) {
+      .legal-row { grid-template-columns: 200px 1fr; gap: 0 1.5rem; align-items: start; }
+      .legal-row dt { padding-top: 0.125rem; }
+    }
+    .legal-row dt { font-weight: 500; color: #374151; font-size: 0.9375rem; }
+    @media (min-width: 768px) { .legal-row dt { font-size: 1rem; } }
+    .legal-row dd { margin: 0; color: #4B5563; font-size: 0.9375rem; }
+    @media (min-width: 768px) { .legal-row dd { font-size: 1rem; } }
+    @media (max-width: 768px) {
+      html { -webkit-text-size-adjust: 100%; }
+      body { overflow-x: hidden; }
+      header.w-full { padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem; }
+      main { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .legal-row { padding: 1.25rem 0; gap: 0.5rem 0; }
+      .legal-row dt { font-size: 1rem; }
+      .legal-row dd { font-size: 1rem; line-height: 1.85; }
+      #menu-toggle { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+      footer .flex a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+      footer .max-w-4xl { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="w-full py-6 px-4 md:px-8 bg-[#EFEFE7] sticky top-0 z-40 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center">
+        <button id="menu-toggle" class="z-50 flex-shrink-0 w-10 h-10 flex items-center justify-center" aria-label="メニュー">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="flex-1 min-w-0"></div>
+        <a href="index.html" class="header-logo text-center block">
+          <span class="block text-lg md:text-2xl font-medium text-[#B85C38] tracking-wider" style="font-family: 'M PLUS Rounded 1c', sans-serif;">百花ジェル</span>
+        </a>
+        <div class="flex-1 min-w-0"></div>
+      </div>
+      <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+      <div id="side-menu" class="fixed left-0 top-0 h-full w-64 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-lg font-light text-gray-800">メニュー</h2>
+            <button id="menu-close" class="text-gray-700 hover:text-gray-900">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <nav class="space-y-4">
+            <a href="index.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">ホーム</a>
+            <a href="product-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">商品詳細</a>
+            <a href="subscription-detail.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">定期お届け便</a>
+            <a href="product-detail.html#faq" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">よくある質問</a>
+            <a href="intro.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">クリニック紹介</a>
+            <a href="contact.html" class="block text-gray-700 hover:text-gray-900 font-light py-2 border-b border-gray-100">お問い合わせ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full py-10 md:py-16">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <h1 class="text-xl md:text-2xl font-medium text-gray-800 text-center mb-10 pb-4 border-b border-gray-200">
+        特定商取引法に基づく表記
+      </h1>
+
+      <dl class="legal-list">
+        <div class="legal-row">
+          <dt>販売業者</dt>
+          <dd>VUV株式会社（VUV Co., Ltd.）</dd>
+        </div>
+        <div class="legal-row">
+          <dt>提携・商品づくりに関与</dt>
+          <dd>医療法人 百花繚乱（ほほえみ歯科 高槻院）</dd>
+        </div>
+        <div class="legal-row">
+          <dt>代表者</dt>
+          <dd>代表取締役　松岡督明</dd>
+        </div>
+        <div class="legal-row">
+          <dt>所在地</dt>
+          <dd>〒650-0027 神戸市中央区中町通3-1-16 サンビル502</dd>
+        </div>
+        <div class="legal-row">
+          <dt>創業</dt>
+          <dd>2021年3月8日</dd>
+        </div>
+        <div class="legal-row">
+          <dt>電話番号</dt>
+          <dd>080-6948-7318</dd>
+        </div>
+        <div class="legal-row">
+          <dt>受付時間</dt>
+          <dd>平日 9:00〜18:00（祝日休み）</dd>
+        </div>
+        <div class="legal-row">
+          <dt>メールアドレス</dt>
+          <dd><a href="mailto:ihr.jimu@hyakka-ryo.com" class="text-gray-700 underline hover:no-underline">ihr.jimu@hyakka-ryo.com</a></dd>
+        </div>
+        <div class="legal-row">
+          <dt>商品代金以外に必要な料金</dt>
+          <dd>なし（送料は当社が負担）</dd>
+        </div>
+        <div class="legal-row">
+          <dt>送料</dt>
+          <dd>全国一律 送料無料</dd>
+        </div>
+        <div class="legal-row">
+          <dt>不良品</dt>
+          <dd>商品に破損・相違・不備があった場合、速やかに交換対応します。</dd>
+        </div>
+        <div class="legal-row">
+          <dt>お届け時期</dt>
+          <dd>ご注文確定後、土日祝を除く4営業日以内に発送します（配送状況により前後する場合があります）。</dd>
+        </div>
+        <div class="legal-row">
+          <dt>お支払い方法</dt>
+          <dd>クレジットカード（VISA / MasterCard / JCB / American Express）</dd>
+        </div>
+        <div class="legal-row">
+          <dt>返品・交換</dt>
+          <dd>お客様都合による返品・交換は不可。商品不備の場合は商品到着後7日以内に連絡。確認後、代替品などを手配。</dd>
+        </div>
+        <div class="legal-row">
+          <dt>返品時の送料</dt>
+          <dd>商品不備による返品・交換：当社負担。お客様都合による返品・交換はお受けしておりません。</dd>
+        </div>
+        <div class="legal-row">
+          <dt>休業日</dt>
+          <dd>土日祝・年末年始・その他当社指定日（休業期間中の対応は翌営業日より順次）</dd>
+        </div>
+      </dl>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#EFEFE7] border-t border-gray-100 mt-12 md:mt-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-12">
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-3 md:mb-6">
+        <a href="product-detail.html" class="hover:text-gray-800 transition-colors">商品紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="intro.html" class="hover:text-gray-800 transition-colors">クリニック紹介</a>
+        <span class="text-gray-300">|</span>
+        <a href="index.html#concept" class="hover:text-gray-800 transition-colors">コンセプト・私たちの思い</a>
+        <span class="text-gray-300">|</span>
+        <a href="contact.html" class="hover:text-gray-800 transition-colors">お問い合わせ</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-600 mb-4 md:mb-10">
+        <a href="legal-notice.html" class="hover:text-gray-800 transition-colors py-2">特定商取引法に基づく表記</a>
+        <span class="text-gray-300">|</span>
+        <a href="terms-of-service.html" class="hover:text-gray-800 transition-colors py-2">利用規約</a>
+        <span class="text-gray-300">|</span>
+        <a href="privacy-policy.html" class="hover:text-gray-800 transition-colors py-2">プライバシーポリシー</a>
+      </div>
+      <div class="text-center mb-4 md:mb-8">
+        <p class="text-sm md:text-base font-medium text-gray-800">ほほえみ歯科</p>
+      </div>
+      <div class="border-t border-gray-200 pt-4 md:pt-6">
+        <p class="text-xs text-gray-500 text-center">© 2026 VUV株式会社. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuToggle = document.getElementById('menu-toggle');
+      var menuClose = document.getElementById('menu-close');
+      var sideMenu = document.getElementById('side-menu');
+      var menuOverlay = document.getElementById('menu-overlay');
+      function openMenu() {
+        sideMenu.classList.remove('-translate-x-full');
+        menuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        sideMenu.classList.add('-translate-x-full');
+        menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      if (menuToggle) menuToggle.addEventListener('click', openMenu);
+      if (menuClose) menuClose.addEventListener('click', closeMenu);
+      if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !sideMenu.classList.contains('-translate-x-full')) closeMenu();
+      });
+    });
+  </script>
+</body>
+</html>
