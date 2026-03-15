@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>百花ジェル | 医療法人百花繚乱</title>
-  <meta name="description" content="泡立たないジェルで、口の奥までやさしく届く。ほほえみ歯科が関わってつくった日用品。">
+  <meta name="description" content="歯科の現場から生まれた天然ジェル。木曽檜由来・天然97%・泡立たない・家族で使える。毎日の口腔ケアに。">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -211,6 +211,21 @@
       #cart-content .grid.grid-cols-12 > div {
         text-align: left !important;
       }
+
+      /* スマホ：セクション余白を約半分に（1画面で強みが把握しやすい） */
+      #product {
+        padding-top: 1.25rem !important;
+        padding-bottom: 2.5rem !important;
+      }
+      .lp-section-mobile-tight {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+
+      /* スマホ：改行・段落を見やすく */
+      .lp-features-footer span.block { display: block; }
+      .readable-text p + p { margin-top: 0.75em; }
+      section p { line-height: 1.75; }
     }
   </style>
 </head>
@@ -419,64 +434,90 @@
     });
   </script>
 
-  <!-- Features Section (3つの特徴) -->
-  <section class="w-full py-8 md:py-16 bg-[#EFEFE7]">
-    <div class="max-w-7xl mx-auto px-2 md:px-8">
-      <div class="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-12">
-        <!-- 特徴1 -->
-        <div class="text-center flex flex-col items-center">
-          <div class="icon-circle flex-shrink-0">
-            <svg class="w-5 h-5 md:w-8 md:h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-            </svg>
-          </div>
-          <div class="mt-3 md:mt-5 space-y-2 md:space-y-3 w-full">
-            <h3 class="text-xs md:text-xl font-light text-gray-800 leading-tight">
-              やさしい使い心地
-            </h3>
-            <p class="text-[10px] md:text-base text-gray-700 leading-tight md:leading-relaxed px-1 md:px-0">
-口臭や歯ぐきが気になる方、少なくありません。<span class="hidden md:inline"><br></span>
-            家族みんなで、毎日使えるやさしさにしました。
-            </p>
-          </div>
-        </div>
+  <!-- ファーストビュー キャッチコピー -->
+  <section class="w-full py-4 md:py-10 bg-[#EFEFE7]">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 text-center">
+      <p class="text-lg md:text-2xl font-medium text-gray-800 tracking-wide mb-1.5 md:mb-2">歯科の現場から生まれた、天然ジェル。</p>
+      <p class="text-xs md:text-base text-gray-600 font-light leading-snug">泡立たない・木曽檜由来・家族で使える。毎日続けやすいつくりにしました。</p>
+    </div>
+  </section>
 
-        <!-- 特徴2 -->
-        <div class="text-center flex flex-col items-center">
-          <div class="icon-circle flex-shrink-0">
-            <svg class="w-5 h-5 md:w-8 md:h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-            </svg>
-          </div>
-          <div class="mt-3 md:mt-5 space-y-2 md:space-y-3 w-full">
-            <h3 class="text-xs md:text-xl font-light text-gray-800 leading-tight">
-              シンプルなつくり
-            </h3>
-            <p class="text-[10px] md:text-base text-gray-700 leading-tight md:leading-relaxed px-1 md:px-0">
-              余計なものは入れていない。<span class="hidden md:inline"><br></span>
-              必要なものだけ。だから、続けやすい。
-            </p>
-          </div>
+  <!-- 百花ジェルの特徴（5つの強み） -->
+  <section class="lp-features-5 w-full py-5 md:py-14 bg-amber-50/70">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <h2 class="text-base md:text-xl font-medium text-gray-800 text-center mb-4 md:mb-12"><span class="bg-amber-100/90 text-gray-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full">百花ジェルの5つの特徴</span></h2>
+      <!-- スマホ：縦1列リスト（5つがはっきり・バランス良く） -->
+      <div class="lp-features-5-list md:hidden space-y-0">
+        <div class="flex items-center gap-3 py-2.5 border-b border-amber-200/80">
+          <span class="lp-feature-icon flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-700 flex items-center justify-center text-gray-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2c-2 4-4 8-4 12a4 4 0 008 0c0-4-2-8-4-12z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2c2 4 4 8 4 12a4 4 0 01-8 0c0-4 2-8 4-12z"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-sm">木曽檜由来</h3>
         </div>
-
-        <!-- 特徴3 -->
-        <div class="text-center flex flex-col items-center">
-          <div class="icon-circle flex-shrink-0">
-            <svg class="w-5 h-5 md:w-8 md:h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
-            </svg>
-          </div>
-          <div class="mt-3 md:mt-5 space-y-2 md:space-y-3 w-full">
-            <h3 class="text-xs md:text-xl font-light text-gray-800 leading-tight">
-              安心して続けられる
-            </h3>
-            <p class="text-[10px] md:text-base text-gray-700 leading-tight md:leading-relaxed px-1 md:px-0">
-              添加は最小限に。<span class="hidden md:inline"><br></span>
-              長く安心して使えるやさしさです。
-            </p>
-          </div>
+        <div class="flex items-center gap-3 py-2.5 border-b border-amber-200/80">
+          <span class="lp-feature-icon flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-700 flex items-center justify-center text-gray-700"><span class="text-xs font-semibold">97%</span></span>
+          <h3 class="text-gray-800 font-medium text-sm">天然成分</h3>
+        </div>
+        <div class="flex items-center gap-3 py-2.5 border-b border-amber-200/80">
+          <span class="lp-feature-icon flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-700 flex items-center justify-center text-gray-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.5c-2 2-3 5-3 8 0 2.5 1.5 5 3 5s3-2.5 3-5c0-3-1-6-3-8z"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-sm">泡立たない</h3>
+        </div>
+        <div class="flex items-center gap-3 py-2.5 border-b border-amber-200/80">
+          <span class="lp-feature-icon flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-700 flex items-center justify-center text-gray-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-sm">毎日続けやすい</h3>
+        </div>
+        <div class="flex items-center gap-3 py-2.5 border-b border-amber-200/80">
+          <span class="lp-feature-icon flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-700 flex items-center justify-center text-gray-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 11a4 4 0 100-8 4 4 0 000 8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M23 21v-2a4 4 0 00-3-3.87"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-sm">家族で使える</h3>
         </div>
       </div>
+      <!-- PC：横5列 -->
+      <div class="hidden md:grid grid-cols-5 gap-10">
+        <div class="flex flex-col items-center text-center">
+          <span class="lp-feature-icon flex-shrink-0 w-14 h-14 rounded-full border-2 border-gray-700 flex items-center justify-center mb-4 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2c-2 4-4 8-4 12a4 4 0 008 0c0-4-2-8-4-12z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2c2 4 4 8 4 12a4 4 0 01-8 0c0-4 2-8 4-12z"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-base mb-2">木曽檜由来</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">木曽檜の水をベースにした、やさしいジェルです。</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="lp-feature-icon flex-shrink-0 w-14 h-14 rounded-full border-2 border-gray-700 flex items-center justify-center mb-4 text-gray-700">
+            <span class="text-sm font-semibold">97%</span>
+          </span>
+          <h3 class="text-gray-800 font-medium text-base mb-2">天然成分</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">ほとんどが天然由来。添加物は少なめです。</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="lp-feature-icon flex-shrink-0 w-14 h-14 rounded-full border-2 border-gray-700 flex items-center justify-center mb-4 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.5c-2 2-3 5-3 8 0 2.5 1.5 5 3 5s3-2.5 3-5c0-3-1-6-3-8z"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-base mb-2">泡立たない</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">泡でごまかさず、のど奥まで届いてすっきり。</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="lp-feature-icon flex-shrink-0 w-14 h-14 rounded-full border-2 border-gray-700 flex items-center justify-center mb-4 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-base mb-2">毎日続けやすい</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">低刺激で、無理なく続けられるつくりです。</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="lp-feature-icon flex-shrink-0 w-14 h-14 rounded-full border-2 border-gray-700 flex items-center justify-center mb-4 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 11a4 4 0 100-8 4 4 0 000 8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M23 21v-2a4 4 0 00-3-3.87"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </span>
+          <h3 class="text-gray-800 font-medium text-base mb-2">家族で使える</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">お子さんから大人まで、1本でそろえられます。</p>
+        </div>
+      </div>
+      <p class="mt-5 md:mt-10 text-center text-gray-600 text-xs md:text-sm leading-relaxed lp-features-footer">
+        <span class="block md:inline">歯科の現場から。</span><span class="block mt-1 md:mt-0 md:inline">お口を清潔に保つ、毎日のケアに。</span>
+      </p>
     </div>
   </section>
 
@@ -501,13 +542,11 @@
         <!-- 商品情報 -->
         <div class="space-y-6">
           <div class="space-y-4 readable-text">
-            <h2 class="text-3xl md:text-4xl font-medium text-gray-800 mb-2 md:mb-3">
-              百花ジェル
-            </h2>
+            <h2 class="text-3xl md:text-4xl font-medium text-gray-800 mb-2 md:mb-3">百花ジェル</h2>
+            <p class="text-base md:text-lg font-medium text-gray-800">歯科の現場から生まれた、<br class="md:hidden">天然の泡立たないジェル。</p>
             <div class="space-y-4 text-base md:text-lg text-gray-800 font-normal leading-relaxed">
-              <p>口臭や歯ぐきが気になる方へ。</p>
-              <p>診療の現場の声をもとに、毎日使いやすいジェルにしました。</p>
-              <p>泡立たないので、口の奥まで届きやすい。<br>刺激も少なく、毎日続けやすくしています。</p>
+              <p>木曽檜由来・天然成分を中心に、毎日続けやすいつくりにしました。</p>
+              <p>泡立たないので、口の奥まで届きやすい。低刺激で、お口を清潔に保つ使い心地にこだわりました。</p>
               <p>家族みんなで使えます。</p>
             </div>
           </div>
@@ -548,20 +587,43 @@
     </div>
   </section>
 
+  <!-- こんな悩みに -->
+  <section class="lp-section-mobile-tight w-full py-12 md:py-16 bg-[#EFEFE7]">
+    <div class="max-w-5xl mx-auto px-4 md:px-8">
+      <h2 class="text-xl md:text-2xl font-medium text-gray-800 text-center mb-8 md:mb-10">こんなお悩み、ありませんか？</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div class="bg-white rounded-lg p-5 md:p-6 border border-gray-100 shadow-sm">
+          <p class="text-gray-500 text-sm mb-2">歯みがき後に口がピリピリする</p>
+          <p class="text-gray-800 font-normal">低刺激の泡立たないジェルで、やさしくお口を清潔に。</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 md:p-6 border border-gray-100 shadow-sm">
+          <p class="text-gray-500 text-sm mb-2">泡が多くて、磨けているかわからない</p>
+          <p class="text-gray-800 font-normal">泡立たないから、みがき心地がわかりやすい。口の奥まで届くつくりです。</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 md:p-6 border border-gray-100 shadow-sm">
+          <p class="text-gray-500 text-sm mb-2">子供と一緒に使える歯みがきがない</p>
+          <p class="text-gray-800 font-normal">家族で使える設計。お子さまにも配慮した、やさしいつくりです。</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 md:p-6 border border-gray-100 shadow-sm">
+          <p class="text-gray-500 text-sm mb-2">成分が気になる</p>
+          <p class="text-gray-800 font-normal">天然成分を中心に、添加は最小限。何が入っているか、わかりやすい配合です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Concept Section (なぜ作ったか) -->
-  <section class="w-full py-12 md:py-16 bg-[#EFEFE7]">
+  <section class="lp-section-mobile-tight w-full py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <!-- 左：テキスト -->
         <div class="space-y-4 md:space-y-5 readable-text">
           <h2 class="text-2xl md:text-3xl font-medium text-gray-800 border-l-4 border-gray-800 pl-4">
-            なぜ作ったか
+            なぜ、百花ジェルをつくったか
           </h2>
-          <div class="space-y-4 text-sm md:text-base text-gray-700 font-light">
-            <p>診療で、口臭や歯ぐきの悩みをよく聞きます。</p>
-            <p>「市販の歯みがきでは物足りない」という方も、少なくありません。</p>
-            <p>だから、必要なものだけを入れたジェルをつくりました。</p>
-            <p>売るためじゃなく、必要だから。</p>
+          <div class="space-y-4 text-sm md:text-base text-gray-700 font-light readable-text">
+            <p>歯科の現場で、口臭や歯ぐきの悩み、市販の歯みがきでは物足りないという声をよく聞きます。</p>
+            <p>だから、毎日使い続けられるように、必要なものだけを入れたジェルをつくりました。売るためではなく、必要だから。</p>
           </div>
         </div>
 
@@ -577,11 +639,11 @@
     </div>
   </section>
 
-  <!-- Ingredients Section (成分・設計思想) コンセプト・私たちの思い -->
-  <section id="concept" class="w-full py-12 md:py-16 bg-[#EFEFE7]">
+  <!-- Ingredients Section (成分・設計思想) コンセプト・私たちの思い ※スマホでは非表示 -->
+  <section id="concept" class="hidden md:block lp-section-mobile-tight w-full py-12 md:py-16 bg-[#EFEFE7]">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
       <h2 class="text-2xl md:text-3xl font-medium text-gray-800 text-center mb-10 pb-4 border-b-2 border-gray-300">
-        成分・設計思想
+        天然成分と、毎日続けやすいつくり
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -592,15 +654,9 @@
             なぜこの設計か
           </h3>
           <div class="space-y-3 text-sm md:text-base text-gray-100 font-light leading-relaxed pl-3">
-            <p>
-              泡を抑えたつくりで、口の奥まで届くようにしています。
-            </p>
-            <p>
-              余計な香料や発泡剤は使っていません。シンプルに。
-            </p>
-            <p>
-              歯科の視点で、必要なものだけを選びました。
-            </p>
+            <p>木曽檜の水を基材に、泡を抑えたつくりで口の奥まで届くようにしています。</p>
+            <p>余計な香料や発泡剤は使っていません。シンプルに。</p>
+            <p>歯科の視点で、必要なものだけを選びました。</p>
           </div>
         </div>
 
@@ -626,19 +682,18 @@
   </section>
 
   <!-- About Section -->
-  <section class="w-full py-12 md:py-16 bg-[#EFEFE7]">
+  <section class="lp-section-mobile-tight w-full py-12 md:py-16 bg-[#EFEFE7]">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <h2 class="text-2xl md:text-3xl font-medium text-gray-800 mb-6 md:mb-8 border-l-4 border-gray-800 pl-4">
-        About
+        家族で使える、やさしさの理由
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <!-- 左：テキスト -->
         <div class="space-y-4 readable-text">
           <div class="space-y-4 text-sm md:text-base text-gray-700 font-light">
-            <p>診療を通じて、毎日のケアの大切さを実感してきました。</p>
-            <p>治療の前に、毎日の歯みがきでできることを。<br>その想いで百花ジェルをつくりました。</p>
-            <p>ほほえみ歯科が関わってつくっています。<br>家族で安心して、毎日使えるケアです。</p>
-            <p>続けやすいものを、と心がけています。</p>
+            <p>歯科の現場を通じて、毎日のケアの大切さを実感してきました。</p>
+            <p>お子さまから大人まで、1本で使えるやさしさにこだわりました。低刺激で、毎日の口腔ケアに。</p>
+            <p>ほほえみ歯科が関わってつくっています。家族で安心して、長く使えるケアです。</p>
           </div>
           <a href="intro.html" class="inline-flex items-center gap-2 mt-6 px-5 py-3 text-sm font-medium text-[#B85C38] border-2 border-[#B85C38] rounded-lg hover:bg-[#B85C38] hover:text-white transition-colors">
             クリニック紹介
